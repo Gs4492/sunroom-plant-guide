@@ -1,12 +1,13 @@
 body{
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
-    background:#f6f4ef;
+    font-family:'Inter', sans-serif;
+    background:#F8F5EF;
+    color:#2c2c2c;
 }
 
 .container{
-    max-width:900px;
+    max-width:700px;
     margin:auto;
     padding:20px;
 }
@@ -18,24 +19,54 @@ h1{
 
 #searchBox{
     width:100%;
-    padding:15px;
+    padding:18px 22px;
     font-size:18px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    margin-bottom:20px;
+    border:none;
+    border-radius:16px;
+    background:white;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom:15px;
+    box-sizing:border-box;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.header h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:54px;
+    font-weight:600;
+    color:#234220;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#6f6f6f;
+    font-size:15px;
+    letter-spacing:.5px;
 }
 
 .card{
     background:white;
-    border-radius:10px;
-    padding:20px;
-    margin-bottom:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    border-radius:20px;
+    padding:22px;
+    margin-bottom:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+    border:1px solid rgba(35,66,32,.06);
+    transition:.2s ease;
+}
+
+.card:hover{
+    transform:translateY(-2px);
 }
 
 .card h2{
-    margin-top:0;
-    color:#2d5016;
+    font-family:'Cormorant Garamond', serif;
+    font-size:32px;
+    color:#234220;
+    margin:0 0 10px;
 }
 
 .label{
@@ -48,9 +79,9 @@ h1{
 
 .plant-detail{
     background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
 }
 
 .clickable{
@@ -75,10 +106,12 @@ h1{
 }
 
 .badge{
-    background:#f1f1f1;
-    padding:6px 10px;
-    border-radius:20px;
+    background:#EEF4EA;
+    color:#234220;
+    padding:7px 12px;
+    border-radius:999px;
     font-size:12px;
+    font-weight:500;
 }
 
 .filter-bar{
@@ -90,12 +123,24 @@ h1{
 
 .filter-btn{
     border:none;
-    padding:10px 15px;
-    border-radius:20px;
+    padding:10px 16px;
+    border-radius:999px;
     cursor:pointer;
-    background:#f0f0f0;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    font-size:14px;
 }
 
 .filter-btn:hover{
     background:#e4e4e4;
+}
+
+#backButton{
+    border:none;
+    background:#234220;
+    color:white;
+    padding:10px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    margin-bottom:20px;
 }
