@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunroom Plant Guide</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌿 Sunroom Plant Guide</h1>
+
+        <input type="text" id="searchBox" placeholder="Search a plant...">
+
+        <div id="resultCount"></div>
+
+        <div class="filter-bar">
+
+            <button class="filter-btn" data-filter="petsafe">
+                🐾 Pet Safe
+            </button>
+
+            <button class="filter-btn" data-filter="beginner">
+                🌱 Beginner
+            </button>
+
+            <button class="filter-btn" data-filter="air">
+                🍃 Air Purifier
+            </button>
+
+            <button class="filter-btn" data-filter="all">
+                Show All
+            </button>
+
+        </div>
+
+        <div id="results"></div>
+
+        <div id="plantDetails" style="display:none;"></div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
