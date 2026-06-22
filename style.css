@@ -144,3 +144,77 @@ h1{
     cursor:pointer;
     margin-bottom:20px;
 }
+.detail-subtitle{
+    color:#6f6f6f;
+    margin-bottom:25px;
+    font-size:14px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.plant-detail h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:32px;
+    color:#234220;
+    margin-top:30px;
+    margin-bottom:12px;
+}
+
+.care-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.care-card{
+    background:#F8F5EF;
+    padding:14px;
+    border-radius:14px;
+}
+
+.care-card strong{
+    display:block;
+    color:#234220;
+    margin-bottom:6px;
+}
+
+.care-card span{
+    color:#555;
+    font-size:14px;
+}
+
+.description-box,
+.content-box{
+    background:#F8F5EF;
+    padding:18px;
+    border-radius:14px;
+    line-height:1.8;
+    border-left:4px solid #234220;
+}
+
+.detail-list{
+    background:#F8F5EF;
+    padding:20px 20px 20px 40px;
+    border-radius:14px;
+    line-height:1.8;
+}
+
+.detail-list li{
+    margin-bottom:8px;
+}
+
+@media (max-width:600px){
+
+    .care-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.search-note{
+    font-size:13px;
+    color:#777;
+    margin-top:-5px;
+    margin-bottom:18px;
+}
