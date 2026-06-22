@@ -109,7 +109,8 @@ searchBox.addEventListener("input", () => {
 
 // --- DISPLAY CARDS ---
 
-function displayPlants(data) {
+function displayPlants(data, showAll = false) {
+
     resultCount.textContent = `${data.length} plants found`;
     results.innerHTML = "";
 
@@ -118,13 +119,19 @@ function displayPlants(data) {
         return;
     }
 
-    data.slice(0, 25).forEach(plant => {
+    const plantsToDisplay = showAll
+        ? data
+        : data.slice(0, 25);
+
+    plantsToDisplay.forEach(plant => {
+
         const card = document.createElement("div");
         card.className = "card clickable";
 
         card.innerHTML = `
             <h2>${plant.name || "Unknown Plant"}</h2>
             <p>${plant.lighting || "Lighting not available"}</p>
+
             <div class="badges">
                 ${plant.beginnerFriendly &&
                     plant.beginnerFriendly.toLowerCase().includes("yes")
@@ -142,7 +149,6 @@ function displayPlants(data) {
                     : plant.petSafe
                     ? '<span class="badge">⚠️ Not Pet Safe</span>'
                     : '<span class="badge">❓ Pet Safety Unknown</span>'}
-
             </div>
         `;
 
@@ -152,6 +158,21 @@ function displayPlants(data) {
 
         results.appendChild(card);
     });
+
+    if (!showAll && data.length > 25) {
+
+        const showAllBtn = document.createElement("button");
+
+        showAllBtn.className = "show-all-btn";
+
+        showAllBtn.innerHTML = `Show All ${data.length} Plants`;
+
+        showAllBtn.addEventListener("click", () => {
+            displayPlants(data, true);
+        });
+
+        results.appendChild(showAllBtn);
+    }
 }
 
 // --- PLANT DETAIL VIEW ---
@@ -241,33 +262,44 @@ function showPlantDetails(plant) {
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 filterButtons.forEach(button => {
+
     button.addEventListener("click", () => {
+
         const filter = button.dataset.filter;
+
         let filteredPlants = plants;
 
         if (filter === "petsafe") {
             filteredPlants = plants.filter(p =>
-                p.petSafe && p.petSafe.toLowerCase().includes("yes")
+                p.petSafe &&
+                p.petSafe.toLowerCase().includes("yes")
             );
         }
+
         if (filter === "beginner") {
             filteredPlants = plants.filter(p =>
-                p.beginnerFriendly && p.beginnerFriendly.toLowerCase().includes("yes")
+                p.beginnerFriendly &&
+                p.beginnerFriendly.toLowerCase().includes("yes")
             );
         }
+
         if (filter === "air") {
             filteredPlants = plants.filter(p =>
-                p.airPurifier && p.airPurifier.toLowerCase() !== "no"
+                p.airPurifier &&
+                p.airPurifier.toLowerCase() !== "no"
             );
         }
+
         if (filter === "all") {
-            filteredPlants = plants;
+            displayPlants(plants, true);
+            searchBox.value = "";
+            return;
         }
 
-        displayPlants(filteredPlants);
+        displayPlants(filteredPlants, false);
         searchBox.value = "";
     });
-});
 
+});
 // --- START ---
 loadData();
